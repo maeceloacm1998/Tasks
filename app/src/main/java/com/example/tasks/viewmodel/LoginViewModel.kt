@@ -48,6 +48,12 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
      * Verifica se usuário está logado
      */
     fun verifyLoggedUser() {
+        val token = mSecurityPreferences.get(TaskConstants.SHARED.TOKEN_KEY)
+        val personToken = mSecurityPreferences.get(TaskConstants.SHARED.PERSON_KEY)
+
+        if(token != ""  && personToken != ""){
+            mLogin.value = true
+        }
     }
 
 }
