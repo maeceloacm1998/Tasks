@@ -33,4 +33,8 @@ class TaskConstants private constructor() {
         const val EXPIRED = 2
     }
 
+    object LIST_ERRORS {
+        const val ERROR_LOAD_LIST = "Erro ao carregar a lista de Tasks. Tente mais tarde"
+    }
+
 }

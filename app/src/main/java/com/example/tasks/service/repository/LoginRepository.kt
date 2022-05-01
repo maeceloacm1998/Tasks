@@ -13,7 +13,7 @@ import retrofit2.Response
 class LoginRepository {
     private val remote = RetrofitClient.createService(LoginService::class.java)
 
-    fun login(email: String, password: String, apiListener: APIListener) {
+    fun login(email: String, password: String, apiListener: APIListener<HeaderModel>) {
         val call: Call<HeaderModel> = remote.login(email, password)
         call.enqueue(object : Callback<HeaderModel> {
             override fun onResponse(call: Call<HeaderModel>, response: Response<HeaderModel>) {
@@ -36,7 +36,7 @@ class LoginRepository {
         name: String,
         email: String,
         password: String,
-        apiListener: APIListener
+        apiListener: APIListener<HeaderModel>
     ) {
         val call: Call<HeaderModel> = remote.registerUser(name, email, password)
         call.enqueue(object : Callback<HeaderModel> {
