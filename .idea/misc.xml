@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/marce/Downloads/UdemyKotlinAndroid-master/UdemyKotlinAndroid-master/Apps/TasksTemplate/app/src/main/res/layout/activity_login.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/marce/Downloads/UdemyKotlinAndroid-master/UdemyKotlinAndroid-master/Apps/TasksTemplate/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/marce/Downloads/UdemyKotlinAndroid-master/UdemyKotlinAndroid-master/Apps/TasksTemplate/app/src/main/res/layout/content_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/marce/Downloads/UdemyKotlinAndroid-master/UdemyKotlinAndroid-master/Apps/TasksTemplate/app/src/main/res/layout/fragment_all_tasks.xml" value="0.22826086956521738" />
       </map>
     </option>
   </component>
