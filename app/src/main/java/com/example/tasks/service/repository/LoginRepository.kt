@@ -2,7 +2,8 @@ package com.example.tasks.service.repository
 
 import com.example.tasks.service.constants.TaskConstants
 import com.example.tasks.service.listener.APIListener
-import com.example.tasks.service.repository.remote.LoginService
+import com.example.tasks.service.model.HeaderModel
+import com.example.tasks.service.http.services.LoginService
 import com.example.tasks.service.repository.remote.RetrofitClient
 import com.google.gson.Gson
 import retrofit2.Call

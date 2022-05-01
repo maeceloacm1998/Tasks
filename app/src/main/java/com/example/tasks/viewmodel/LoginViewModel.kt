@@ -1,18 +1,15 @@
 package com.example.tasks.viewmodel
 
 import android.app.Application
-import android.content.Intent
 import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.tasks.service.constants.TaskConstants
 import com.example.tasks.service.listener.APIListener
-import com.example.tasks.service.repository.HeaderModel
+import com.example.tasks.service.model.HeaderModel
 import com.example.tasks.service.repository.LoginRepository
 import com.example.tasks.service.repository.local.SecurityPreferences
-import com.example.tasks.view.AllTasksFragment
 
 class LoginViewModel(application: Application) : AndroidViewModel(application) {
     private var mSecurityPreferences = SecurityPreferences(application.applicationContext)
