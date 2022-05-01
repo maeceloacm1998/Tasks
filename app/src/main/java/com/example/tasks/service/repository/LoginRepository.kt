@@ -12,14 +12,15 @@ import retrofit2.Response
 class LoginRepository {
     private val remote = RetrofitClient.createService(LoginService::class.java)
 
-    fun login(email:String, password:String, apiListener: APIListener){
-        val call: Call<HeaderModel> = remote.login(email,password)
-        call.enqueue(object : Callback<HeaderModel>{
+    fun login(email: String, password: String, apiListener: APIListener) {
+        val call: Call<HeaderModel> = remote.login(email, password)
+        call.enqueue(object : Callback<HeaderModel> {
             override fun onResponse(call: Call<HeaderModel>, response: Response<HeaderModel>) {
-                if(response.code() != TaskConstants.HTTP.SUCCESS){
-                    val validation = Gson().fromJson(response.errorBody()!!.string(), String::class.java)
+                if (response.code() != TaskConstants.HTTP.SUCCESS) {
+                    val validation =
+                        Gson().fromJson(response.errorBody()!!.string(), String::class.java)
                     apiListener.onFailure(validation)
-                }else{
+                } else {
                     response.body()?.let { apiListener.onSuccess(it) }
                 }
             }
@@ -27,6 +28,31 @@ class LoginRepository {
             override fun onFailure(call: Call<HeaderModel>, t: Throwable) {
                 apiListener.onFailure(t.message.toString())
             }
+        })
+    }
+
+    fun create(
+        name: String,
+        email: String,
+        password: String,
+        apiListener: APIListener
+    ) {
+        val call: Call<HeaderModel> = remote.registerUser(name, email, password)
+        call.enqueue(object : Callback<HeaderModel> {
+            override fun onResponse(call: Call<HeaderModel>, response: Response<HeaderModel>) {
+                if (response.code() != TaskConstants.HTTP.SUCCESS) {
+                    val validation =
+                        Gson().fromJson(response.errorBody()!!.string(), String::class.java)
+                    apiListener.onFailure(validation)
+                } else {
+                    response.body()?.let { apiListener.onSuccess(it) }
+                }
+            }
+
+            override fun onFailure(call: Call<HeaderModel>, t: Throwable) {
+                apiListener.onFailure(t.message.toString())
+            }
+
         })
     }
 
