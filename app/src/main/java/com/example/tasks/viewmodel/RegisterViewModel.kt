@@ -20,9 +20,9 @@ class RegisterViewModel(application: Application) : AndroidViewModel(application
     val successCreateUser = mSucccessCreateUser
 
     fun create(name: String, email: String, password: String) {
-        mLoginRepository.create(name,email,password,object :APIListener{
+        mLoginRepository.create(name, email, password, object : APIListener<HeaderModel> {
             override fun onSuccess(model: HeaderModel) {
-                with(mSecurityPreferences){
+                with(mSecurityPreferences) {
                     store(TaskConstants.SHARED.TOKEN_KEY, model.token)
                     store(TaskConstants.SHARED.PERSON_KEY, model.personKey)
                     store(TaskConstants.SHARED.PERSON_NAME, model.name)
@@ -32,10 +32,9 @@ class RegisterViewModel(application: Application) : AndroidViewModel(application
             }
 
             override fun onFailure(message: String) {
-                Toast.makeText(getApplication(),message,Toast.LENGTH_LONG).show()
+                Toast.makeText(getApplication(), message, Toast.LENGTH_LONG).show()
             }
 
         })
-
     }
 }

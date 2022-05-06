@@ -101,9 +101,10 @@ class TasksRepository {
         priorityId: Int,
         description: String,
         dueDate: String,
+        complete:Boolean,
         apiListener: APIListener<Boolean>
     ) {
-        val call: Call<Boolean> = remote.createTask(priorityId, description, dueDate)
+        val call: Call<Boolean> = remote.createTask(priorityId, description, dueDate, complete)
 
         call.enqueue(object : Callback<Boolean> {
             override fun onResponse(call: Call<Boolean>, response: Response<Boolean>) {
