@@ -54,7 +54,7 @@ class TaskFormActivity : AppCompatActivity(), View.OnClickListener,DatePickerDia
     private fun observe() {
         mViewModel.createTask.observe(this, Observer {
             if (it) {
-                Intent(applicationContext, MainActivity::class.java)
+                startActivity(Intent(applicationContext, MainActivity::class.java))
             }
         })
 
