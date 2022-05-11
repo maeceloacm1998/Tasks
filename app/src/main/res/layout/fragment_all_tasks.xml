@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".view.AllTasksFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
+    <com.airbnb.epoxy.EpoxyRecyclerView
         android:id="@+id/recycler_all_tasks"
         android:layout_width="0dp"
         android:layout_height="match_parent"

@@ -1,8 +1,10 @@
 package com.example.tasks.service.model
 
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 class TaskModel {
+    @PrimaryKey(autoGenerate = true)
     @SerializedName("id")
     val id: Int = 0
 
